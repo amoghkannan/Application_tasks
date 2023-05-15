@@ -1,0 +1,107 @@
+#include <iostream>
+#include <stdio.h>
+#include<cmath>
+using namespace std;
+
+class CelestialBody{
+public:
+float radius_body;
+float mass_body;
+float density;
+float G=6.67E-11;
+float mass_parent_body;
+float distance_from_Sun;
+float spectrum[1000];
+
+
+  
+};
+
+
+
+
+
+
+
+
+class Star:public CelestialBody{
+float luminosity;
+int no_of_planets;
+string classification;
+float age;
+
+float temperature_max_intensity(float wavelength_max_intensity){
+  return 2.89*10E-3/wavelength_max_intensity;
+}
+
+float doppler_shift;
+
+
+
+
+
+
+
+
+
+};
+
+
+class Planet:public CelestialBody{
+float semi_major_axis;
+float semi_minor_axis;
+float mu=G*mass_parent_body;
+
+float orbital_period(){
+
+  return sqrt(pow(semi_major_axis,3)*4*3.14*3.14/(G*mass_parent_body));
+}
+
+int no_of_moons;
+bool in_goldilocks_zone;
+
+float eccentricity(){
+  return sqrt(1-(pow(semi_minor_axis,2)/pow(semi_major_axis,2)));
+
+  
+}
+
+float albedo;
+
+float angular_momentum(){
+return mu*pow(semi_minor_axis,2)/(semi_major_axis);
+}
+
+float orbital_energy(){
+  float e=eccentricity();
+  float h=angular_momentum();
+  return (-pow(mu,2)/(2*pow(h,2)))*(1-pow(e,2));
+  
+}
+
+float orbital_inclination;
+float arg_periapsis;
+
+float escape_velocity(float current_radius){
+float E=orbital_energy();
+if(E>0){
+  return -1;
+}
+else{
+return sqrt(2*(E+mu/current_radius));  
+}  
+}
+};
+
+
+
+
+
+
+
+int main() {
+
+
+  
+  
+}
